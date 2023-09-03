@@ -1,0 +1,101 @@
+body {
+    max-width: 650px;
+    margin: 40px auto;
+    padding 0 10px;
+    text-align: center;
+}
+
+.App-Logo {
+    /*top: 0;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 600px;
+    height: 600px;
+}
+
+.App-Title {
+    position: relative;
+    top: 0;
+    font-family: SpaceMono;
+    line-height: 1.2;
+    font-size: 36px;
+    font-weight: lighter;
+    display: inline-block;
+    margin: 30px auto 30px auto;
+}
+
+.App-Title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: -8px;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.App-Title:hover::after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
+}
+
+.scroll {
+    overflow-y: auto;
+    height: 900px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-Logo {
+      animation-timeline: scroll(root);
+      animation-name: progress-spin;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      /*
+      animation-name: img-spin;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color:#c9d1d9;
+        background: #0d1117
+    }
+
+    a:link {
+        color: #58a6ff
+    }
+
+    a:visited {
+        color: #8e96f0
+    }
+}
+
+@font-face {
+    font-family: SpaceMono;
+    src: url(./assets/fonts/SpaceMono/SpaceMono-Regular.ttf);
+}
+
+@keyframes img-spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes progress-spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
