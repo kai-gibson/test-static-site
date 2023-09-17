@@ -12,29 +12,105 @@ body {
     min-height: 500vh;
 }
 
+a {
+    color: #c9d1d9;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .App-Logo {
     /*top: 0;*/
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -13%;
-    margin-top: -20%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
     width: 600px;
     height: 600px;
 }
 
 .App-Title {
     position: fixed;
-    top: 0;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
     font-family: SpaceMono;
     line-height: 1.2;
     font-size: 36px;
     font-weight: lighter;
     display: inline-block;
-    margin: 30px 0 30px 40%;
 }
 
-.App-Title::after {
+.header {
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0 auto;
+
+    font-family: SpaceMono;
+    line-height: 1.2;
+    font-size: 36px;
+    font-weight: lighter;
+    display: inline-block;
+}
+
+.blog-link, .pod-link {
+    position: fixed;
+    top: 77%;
+    margin: auto;
+    font-family: SpaceMono;
+    line-height: 1.2;
+    font-size: 24px;
+    font-weight: lighter;
+    display: inline-block;
+}
+
+.pod-link {
+    left: 40%;
+}
+
+.blog-link {
+    left: 55%;
+}
+
+/* blog contents page formatting */
+
+.blog-index > .blog-title {
+    margin:0 auto;
+    font-family: SpaceMono;
+    line-height: 1.2;
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+
+.blog-index {
+    /*
+    padding-top: 5%;
+    left: 50%;
+    margin: 0 auto;
+    width: 600px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    */
+    width: 600px;
+    padding-top: 2%;
+    margin: 0 auto;
+}
+
+
+
+.App-Title::after, .pod-link::after, 
+.blog-link::after, .blog-title::after
+{
     content: '';
     position: absolute;
     width: 100%;
@@ -47,7 +123,9 @@ body {
     transition: transform 0.25s ease-out;
 }
 
-.App-Title:hover::after {
+.App-Title:hover::after, .blog-link:hover::after, 
+.pod-link:hover::after, .blog-title:hover::after
+{
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
 }
@@ -56,6 +134,11 @@ body {
     overflow-y: auto;
     height: 900px;
 }
+
+
+
+
+/* Media stuff */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-Logo {
@@ -77,13 +160,16 @@ body {
         background: #0d1117
     }
 
+    /*
     a:link {
         color: #58a6ff
     }
+    
 
     a:visited {
         color: #8e96f0
     }
+    */
 }
 
 @font-face {
